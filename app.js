@@ -4,9 +4,10 @@ app.controller('homeController', home);
 
 function home() {
   var vm = this;
-  vm.message = "Hello world."
+  vm.message = "To Do List:"
   vm.todos = [
-    { name: "Item One"},
-    { name: "Item Two"}
+    { name: "Item One", done: false},
+    { name: "Item Two", done: false}
   ]
+  vm.messageTwo = "No Items on Your To Do List."
 }

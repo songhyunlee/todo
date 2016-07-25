@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="default.css">
-  <title>Angular JS</title>
-</head>
-<body ng-app="todo">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <div ng-controller="homeController as home">
-          <h1>
-            {{home.message}}
-          </h1>
-          <h5 ng-repeat="todo in home.todos">
-            <label>
-              <span ng-class="todo.done ? 'strike': 'h5'">
-                <input type="checkbox" ng-click="todo.done = !todo.done">
-                {{todo.name}}
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="default.css">
+    <title>Angular JS</title>
+  </head>
+  <body ng-app="todo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div ng-controller="homeController as home">
+            <h1>
+              <span ng-show="home.todos.length != 0">
+                {{home.message}} {{home.todos.length}}
               </span>
-            </label>
-          </h5>
+              <span ng-show="home.todos.length == 0">
+                {{home.messageTwo}}
+              </span>
+            </h1>
+            <h5 ng-repeat="todo in home.todos">
+              <label>
+                <span ng-class="todo.done ? 'strike': 'h5'">
+                  <input type="checkbox" ng-click="todo.done = !todo.done">
+                    {{todo.name}}
+                </span> 
+              </label>
+            </h5>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="app.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
